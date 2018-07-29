@@ -33,6 +33,10 @@ If you don't like him you can set him free in the config. Although, his only ski
 
 * PokeBuses are highly configurable and uses a **sexy** interactive chat system to do so. Better than porn confirmed.
 
+## Commands
+* `/pokebus stops` - pokebus.admin.stops
+* `/pokebus reload` - pokebus.admin.reload
+
 ## Common Problems
 * **Pokemon going in circles:** Lower the travel speed and make the growth smaller.  
 
