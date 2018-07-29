@@ -34,5 +34,5 @@ If you don't like him you can set him free in the config. Although, his only ski
 * PokeBuses are highly configurable and uses a **sexy** interactive chat system to do so. Better than porn confirmed.
 
 ## Limitations
-None, this is basically the cure for cancer.
+None, this is basically the cure for cancer.  
 **Disclaimer:** No it's not
