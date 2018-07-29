@@ -5,9 +5,14 @@ buildscript {
             name = "forge"
             url = "http://files.minecraftforge.net/maven"
         }
+        maven {
+            name = 'sponge'
+            url = 'https://repo.spongepowered.org/maven'
+        }
     }
     dependencies {
         classpath 'net.minecraftforge.gradle:ForgeGradle:2.3-SNAPSHOT'
+        classpath 'org.spongepowered:mixingradle:0.6-SNAPSHOT'
     }
 }
 
@@ -16,9 +21,10 @@ plugins {
 }
 
 apply plugin: 'net.minecraftforge.gradle.forge'
+apply plugin: 'org.spongepowered.mixin'
 
 
-version = "1.12.2-1.0.0"
+version = "1.12.2-1.0.3"
 group = "io.github.cjcool06"
 archivesBaseName = "PokeBus"
 
@@ -34,6 +40,23 @@ minecraft {
 
 dependencies {
     compile 'org.spongepowered:spongeapi:7.1.0-SNAPSHOT'
+    compile 'org.spongepowered:mixin:0.7.5-SNAPSHOT'
+}
+
+sourceSets {
+    main {
+        refMap = "mixins.pokebus.refmap.json"
+    }
+}
+
+jar {
+    manifest.attributes(
+            'TweakClass': 'org.spongepowered.asm.launch.MixinTweaker',
+            'MixinConfigs': 'mixins.pokebus.json',
+            'FMLCorePlugin': 'io.github.cjcool06.pokebus.coremod.PokeBusCoreMod',
+            'FMLCorePluginContainsFMLMod': 'true',
+            'ForceLoadAsMod': 'true'
+    )
 }
 
 //Fix forges AT breaking everything because the AT checker is stupid

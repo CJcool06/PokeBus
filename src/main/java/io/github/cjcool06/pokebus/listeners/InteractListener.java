@@ -1,90 +1,82 @@
 package io.github.cjcool06.pokebus.listeners;
 
 import com.pixelmonmod.pixelmon.entities.pixelmon.EntityStatue;
-import io.github.cjcool06.pokebus.commands.RemoveCommand;
-import io.github.cjcool06.pokebus.commands.SetCommand;
-import net.minecraft.util.math.BlockPos;
+import io.github.cjcool06.pokebus.commands.StopsCommand;
+import io.github.cjcool06.pokebus.config.PokeBusConfig;
+import io.github.cjcool06.pokebus.managers.BusManager;
+import io.github.cjcool06.pokebus.obj.Bus;
+import io.github.cjcool06.pokebus.obj.BusStop;
+import org.spongepowered.api.Sponge;
+import org.spongepowered.api.data.type.HandTypes;
 import org.spongepowered.api.entity.living.player.Player;
 import org.spongepowered.api.event.Listener;
 import org.spongepowered.api.event.block.InteractBlockEvent;
 import org.spongepowered.api.event.entity.InteractEntityEvent;
+import org.spongepowered.api.item.ItemType;
 import org.spongepowered.api.text.Text;
 import org.spongepowered.api.text.format.TextColors;
+import org.spongepowered.api.text.serializer.TextSerializers;
 
 public class InteractListener {
 
     @Listener
     public void onInteractEntity(InteractEntityEvent.Secondary event) {
-        if (event.getSource() instanceof Player) {
+        if (event.getSource() instanceof Player && event.getHandType().equals(HandTypes.MAIN_HAND)) {
             Player player = (Player)event.getSource();
-
-            if (event.getTargetEntity() instanceof EntityStatue) {
-                EntityStatue statue = (EntityStatue)event.getTargetEntity();
-                player.sendMessage(Text.of(TextColors.GREEN, "Detected statue: " + statue.getPokemonName()));
-
-                if (SetCommand.listeningFor.containsKey(player)) {
-                    if (SetCommand.listeningFor.get(player)) {
-                        player.sendMessage(Text.of(TextColors.RED, "You have already selected a statue. Select a destination for the poke-bus."));
-                    }
-                    else {
-                        if (statue.getEntityData().hasKey("IsBusStop") && statue.getEntityData().getBoolean("IsBus")) {
-                            player.sendMessage(Text.of(TextColors.RED, "That statue is already a poke-bus stop."));
-                        }
-                        else {
-                            statue.getEntityData().setBoolean("IsBusStop", true);
-                            //player.sendMessage(Text.of(TextColors.RED, "That statue now enslaves " + statue.getPokemonName() + "'s for public transport. I hope you're happy."));
-                        }
-                        SetCommand.listeningFor.put(player, true);
-                    }
-                }
-                else if (RemoveCommand.listeningFor.contains(player)) {
-                    if (statue.getEntityData().hasKey("IsBusStop") && statue.getEntityData().getBoolean("IsBus")) {
-                        statue.getEntityData().setBoolean("IsBusStop", false);
-                        player.sendMessage(Text.of(TextColors.RED, "That statue is no longer a poke-bus stop."));
-                    }
-                    else {
-                        player.sendMessage(Text.of(TextColors.RED, "That statue isn't a poke-bus stop."));
-                    }
-
-                    RemoveCommand.listeningFor.remove(player);
-                }
-                else if (statue.getEntityData().hasKey("IsBusStop") && statue.getEntityData().getBoolean("IsBusStop")) {
-                    // Execute bus stuff
-                }
+            if (player.getItemInHand(HandTypes.MAIN_HAND).isPresent() &&
+                    player.getItemInHand(HandTypes.MAIN_HAND).get().getType().equals(Sponge.getRegistry().getType(ItemType.class, "pixelmon:chisel").get())) {
+                return;
             }
-            else if (SetCommand.listeningFor.containsKey(player)) {
-                if (SetCommand.listeningFor.get(player)) {
-                    player.sendMessage(Text.of(TextColors.RED, "You have already selected a statue. Select a destination for the poke-bus."));
+            if (ChatListener.listeningForInteract.containsKey((Player)event.getSource())) {
+                if (event.getTargetEntity() instanceof EntityStatue) {
+                    EntityStatue statue = (EntityStatue)event.getTargetEntity();
+
+                    if (!BusManager.isBusStop(statue)) {
+                        String name = ChatListener.listeningForInteract.get(player);
+                        new BusStop(statue, name);
+                        player.sendMessage(Text.of(TextColors.GREEN, "Created new PokeBus stop: ", TextColors.AQUA, name));
+                        ChatListener.listeningForInteract.remove(player);
+                        StopsCommand.showStopsSummary(player);
+                    }
+                    else {
+                        player.sendMessage(Text.of(TextColors.RED, "That statue is already a PokeBus stop."));
+                    }
                 }
                 else {
-                    if (statue.getEntityData().hasKey("IsBusStop") && statue.getEntityData().getBoolean("IsBus")) {
-                        player.sendMessage(Text.of(TextColors.RED, "That statue is already a poke-bus stop."));
+                    player.sendMessage(Text.of(TextColors.RED, "You did not right-click a statue; cancelling tool."));
+                    ChatListener.listeningForInteract.remove(player);
+                    event.setCancelled(true);
+                }
+            }
+            else if (event.getTargetEntity() instanceof EntityStatue) {
+                EntityStatue statue = (EntityStatue)event.getTargetEntity();
+                BusStop busStop = BusManager.getBusStop(statue);
+                if (busStop != null) {
+                    if (!busStop.isActive) {
+                        player.sendMessage(Text.of(TextColors.RED, "This bus stop is currently inactive. Check back later!"));
+                    }
+                    else if (busStop.getDestinations().isEmpty()) {
+                        player.sendMessage(Text.of(TextColors.RED, "This PokeBus stop hasn't any destinations."));
                     }
                     else {
-                        statue.getEntityData().setBoolean("IsBusStop", true);
-                        //player.sendMessage(Text.of(TextColors.RED, "That statue now enslaves " + statue.getPokemonName() + "'s for public transport. I hope you're happy."));
+                        Bus bus = new Bus(busStop, player);
+                        busStop.getBuses().add(bus);
+                        bus.sendMessage(TextSerializers.FORMATTING_CODE.deserialize(PokeBusConfig.rideStart));
                     }
                 }
-                SetCommand.listeningFor.remove(player);
-            }
-            else if (SetCommand.listeningFor.containsKey(player) || RemoveCommand.listeningFor.contains(player)) {
-                player.sendMessage(Text.of(TextColors.RED, "You did not right-click a statue; cancelling tool."));
-                SetCommand.listeningFor.remove(player);
-                RemoveCommand.listeningFor.remove(player);
             }
         }
     }
 
-    // Allows players to easily cancel their tool by right-clicking a block
     @Listener
-    public void onInteractBlock(InteractBlockEvent event) {
-        if (event.getSource() instanceof Player) {
+    public void onInteractBlock(InteractBlockEvent.Secondary event) {
+        if (event.getSource() instanceof Player && event.getHandType().equals(HandTypes.MAIN_HAND)) {
             Player player = (Player) event.getSource();
 
-            if (SetCommand.listeningFor.contains(player) || RemoveCommand.listeningFor.contains(player)) {
+            if (ChatListener.listeningForInteract.containsKey(player)) {
                 player.sendMessage(Text.of(TextColors.RED, "You did not right-click a statue; cancelling tool."));
-                SetCommand.listeningFor.remove(player);
-                RemoveCommand.listeningFor.remove(player);
+                ChatListener.listeningForInteract.remove(player);
+                event.setCancelled(true);
             }
         }
     }
