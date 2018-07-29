@@ -34,6 +34,6 @@ If you don't like him you can set him free in the config. Although, his only ski
 * PokeBuses are highly configurable and uses a **sexy** interactive chat system to do so. Better than porn confirmed.
 
 ## Common Problems
-**Pokemon going in circles:** Lower the travel speed and make the growth smaller.
-**Problem getting to destination error:** Most likely the destination as above the maximum pathing range distance. Increase in config.
-**Cannot get to destination:** Use ghost destinations to make a custom path to follow. Pretty much a must-do for any complex or long distance destinations.
+**Pokemon going in circles:** Lower the travel speed and make the growth smaller.  
+**Problem getting to destination error:** Most likely the destination as above the maximum pathing range distance. Increase in config.  
+**Cannot get to destination:** Use ghost destinations to make a custom path to follow. Pretty much a must-do for any complex or long distance destinations.  
