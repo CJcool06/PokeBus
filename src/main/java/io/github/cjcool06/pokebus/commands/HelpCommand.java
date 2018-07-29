@@ -16,7 +16,7 @@ public class HelpCommand implements CommandExecutor {
     public CommandResult execute(CommandSource src, CommandContext args) {
         List<Text> contents = new ArrayList<>();
 
-        contents.add(Text.of(TextColors.AQUA, "/pokebus stops", TextColors.GRAY, " - ", TextColors.GRAY, "Brings up interactive chat"));
+        contents.add(Text.of(TextColors.AQUA, "/PokeBus Stops", TextColors.GRAY, " - ", TextColors.GRAY, "Brings up interactive chat"));
         contents.add(Text.of(TextColors.AQUA, "/pokebus reload", TextColors.GRAY, " - ", TextColors.GRAY, "Reloads config"));
 
         PaginationList.builder()

@@ -95,7 +95,7 @@ public class DataManager {
                     }
 
                     if (!Sponge.getServer().getWorld(worldUID).isPresent()) {
-                        PokeBus.getLogger().warn("Error deserializing PokeBus stop " + name + ": World not found.");
+                        PokeBus.getLogger().warn("Error deserializing PokeBus Stop " + name + ": World not found.");
                         continue;
                     }
                     BusStop busStop = new BusStop(statueUID, Sponge.getServer().getWorld(worldUID).get(), name, driverNames);

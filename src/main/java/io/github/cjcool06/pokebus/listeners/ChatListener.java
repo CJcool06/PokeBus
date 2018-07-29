@@ -34,13 +34,13 @@ public class ChatListener {
                     player.sendMessage(Text.of(TextColors.RED, "The name must be 1 word and be no more than 10 characters long."));
                 }
                 else if (BusManager.isNameTaken(messageArgs[1])) {
-                    player.sendMessage(Text.of(TextColors.RED, "That name is already being used by another PokeBus stop."));
+                    player.sendMessage(Text.of(TextColors.RED, "That name is already being used by another PokeBus Stop."));
                 }
                 else {
                     if (listeningForChatStopsCommand.contains(player)) {
                         listeningForInteract.put(player, messageArgs[1]);
                         listeningForChatStopsCommand.remove(player);
-                        player.sendMessage(Text.of(TextColors.GRAY, "Right-click a statue to create the ", TextColors.AQUA, messageArgs[1], TextColors.GRAY, " PokeBus stop."));
+                        player.sendMessage(Text.of(TextColors.GRAY, "Right-click a statue to create the ", TextColors.AQUA, messageArgs[1], TextColors.GRAY, " PokeBus Stop."));
                     }
                     else if (listeningForChatBusStops.containsKey(player)) {
                         BusStop busStop = listeningForChatBusStops.get(player);
@@ -49,7 +49,7 @@ public class ChatListener {
                         busStop.editDestinations(player);
                         listeningForChatBusStops.remove(player);
                         player.sendMessage(Text.of(TextColors.GREEN, "Created new destination ", TextColors.LIGHT_PURPLE, destination.getName(), TextColors.GREEN,
-                                " for PokeBus stop ", TextColors.AQUA, busStop.getName(), TextColors.GREEN, "."));
+                                " for PokeBus Stop ", TextColors.AQUA, busStop.getName(), TextColors.GREEN, "."));
                     }
                 }
                 event.setMessageCancelled(true);
@@ -62,7 +62,7 @@ public class ChatListener {
                 else {
                     for (String name : busStop.getDriverNames()) {
                         if (Utils.toPlain(name).equalsIgnoreCase(Utils.toPlain(messageArgs[1]))) {
-                            player.sendMessage(Text.of(TextColors.RED, "That name is already being used by this PokeBus stop."));
+                            player.sendMessage(Text.of(TextColors.RED, "That name is already being used by this PokeBus Stop."));
                             event.setMessageCancelled(true);
                             return;
                         }

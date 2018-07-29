@@ -16,7 +16,7 @@ public class StatueListener {
         BusStop busStop = BusManager.getBusStop(event.statue);
         if (busStop != null) {
             BusManager.removeBusStop(busStop.getName());
-            Utils.sendMessage((Player)event.player, Text.of(TextColors.RED, "Removed PokeBus stop ", TextColors.AQUA, busStop.getName(), TextColors.RED, "."));
+            Utils.sendMessage((Player)event.player, Text.of(TextColors.RED, "Removed PokeBus Stop ", TextColors.AQUA, busStop.getName(), TextColors.RED, "."));
         }
     }
 }

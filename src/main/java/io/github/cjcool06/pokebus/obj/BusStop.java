@@ -102,7 +102,7 @@ public class BusStop {
                             .onClick(TextActions.executeCallback(dummySrc -> {
                                 this.destinations.remove(destination);
                                 src.sendMessage(Text.of(TextColors.RED, "Deleted destination ", TextColors.LIGHT_PURPLE, destination.getName(), TextColors.RED,
-                                        " from PokeBus stop ", TextColors.AQUA, getName(), TextColors.RED, "."));
+                                        " from PokeBus Stop ", TextColors.AQUA, getName(), TextColors.RED, "."));
                                 editDestinations(src);
                             }))
                             .build())
@@ -111,7 +111,7 @@ public class BusStop {
                             .onClick(TextActions.executeCallback(dummySrc -> {
                                 destination.sendPlayer((Player)src);
                                 src.sendMessage(Text.of(TextColors.GREEN, "Teleported to destination ", TextColors.LIGHT_PURPLE, destination.getName(), TextColors.GREEN,
-                                        " of PokeBus stop ", TextColors.AQUA, getName(), TextColors.GREEN, "."));
+                                        " of PokeBus Stop ", TextColors.AQUA, getName(), TextColors.GREEN, "."));
                             }))
                             .build())
                     .append(Text.of(TextColors.GRAY, " - "))
@@ -155,7 +155,7 @@ public class BusStop {
 
         if (isActive) {
             contents.add(Text.builder().append(Text.of(TextColors.GREEN, "[Active]"))
-                    .onHover(TextActions.showText(Text.of(TextColors.GRAY, TextStyles.ITALIC, "Click to make this PokeBus stop inactive")))
+                    .onHover(TextActions.showText(Text.of(TextColors.GRAY, TextStyles.ITALIC, "Click to make this PokeBus Stop inactive")))
                     .onClick(TextActions.executeCallback(dummySrc -> {
                         isActive = false;
                         editOther(src);
@@ -164,7 +164,7 @@ public class BusStop {
         }
         else {
             contents.add(Text.builder().append(Text.of(TextColors.RED, "[Inactive]"))
-                    .onHover(TextActions.showText(Text.of(TextColors.GRAY, TextStyles.ITALIC, "Click to make this PokeBus stop active")))
+                    .onHover(TextActions.showText(Text.of(TextColors.GRAY, TextStyles.ITALIC, "Click to make this PokeBus Stop active")))
                     .onClick(TextActions.executeCallback(dummySrc -> {
                         isActive = true;
                         editOther(src);

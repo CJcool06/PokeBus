@@ -40,6 +40,7 @@ public class PokeBus {
     @Listener
     public void onInit(GameInitializationEvent event) {
         plugin = this;
+        logger.info("Developed by CJcool06");
         logger.info("Loading config.");
         PokeBusConfig.load();
 

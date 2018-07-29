@@ -21,7 +21,7 @@ public class StopsCommand implements CommandExecutor {
 
     public static CommandSpec getSpec() {
         return CommandSpec.builder()
-                .description(Text.of("Edit PokeBus stops"))
+                .description(Text.of("Edit PokeBus Stops"))
                 .permission("pokebus.admin.stops")
                 .executor(new StopsCommand())
                 .build();
@@ -38,17 +38,17 @@ public class StopsCommand implements CommandExecutor {
         for (BusStop busStop : BusManager.getBusStops()) {
             contents.add(Text.builder()
                     .append(Text.builder().append(Text.of(TextColors.RED, "[", TextColors.DARK_RED, "-", TextColors.RED, "]"))
-                            .onHover(TextActions.showText(Text.of(TextColors.GRAY, TextStyles.ITALIC, "Click to delete this PokeBus stop")))
+                            .onHover(TextActions.showText(Text.of(TextColors.GRAY, TextStyles.ITALIC, "Click to delete this PokeBus Stop")))
                             .onClick(TextActions.executeCallback(dummySrc -> {
                                 BusManager.removeBusStop(busStop);
                                 showStopsSummary(src);
                             }))
                             .build())
                     .append(Text.builder().append(Text.of(TextColors.DARK_AQUA, " [", TextColors.AQUA, busStop.getName(), TextColors.DARK_AQUA, "]", TextColors.GRAY, " -"))
-                            .onHover(TextActions.showText(Text.of(TextColors.GRAY, TextStyles.ITALIC, "Click to teleport to this PokeBus stop")))
+                            .onHover(TextActions.showText(Text.of(TextColors.GRAY, TextStyles.ITALIC, "Click to teleport to this PokeBus Stop")))
                             .onClick(TextActions.executeCallback(dummySrc -> {
                                 busStop.sendPlayer((Player)src);
-                                src.sendMessage(Text.of(TextColors.GRAY, "Teleported to PokeBus stop ", TextColors.AQUA, busStop.getName(), TextColors.GRAY, "."));
+                                src.sendMessage(Text.of(TextColors.GRAY, "Teleported to PokeBus Stop ", TextColors.AQUA, busStop.getName(), TextColors.GRAY, "."));
                             }))
                             .build())
                     .append(Text.builder().append(Text.of(TextColors.DARK_PURPLE, " [", TextColors.LIGHT_PURPLE, "Destinations", TextColors.DARK_PURPLE, "]"))
@@ -58,12 +58,12 @@ public class StopsCommand implements CommandExecutor {
                             }))
                             .build())
                     .append(Text.builder().append(Text.of(TextColors.DARK_GREEN, " [Driver Names]"))
-                            .onHover(TextActions.showText(Text.of(TextColors.GRAY, TextStyles.ITALIC, "Click to edit this PokeBus stop's driver names")))
+                            .onHover(TextActions.showText(Text.of(TextColors.GRAY, TextStyles.ITALIC, "Click to edit this PokeBus Stop's driver names")))
                             .onClick(TextActions.executeCallback(dummySrc -> {
                                 busStop.editNames(src);
                             })).build())
                     .append(Text.builder().append(Text.of(TextColors.GOLD, " [", TextColors.YELLOW, "Other", TextColors.GOLD, "]"))
-                            .onHover(TextActions.showText(Text.of(TextColors.GRAY, TextStyles.ITALIC, "Click to edit bus variables for this PokeBus stop")))
+                            .onHover(TextActions.showText(Text.of(TextColors.GRAY, TextStyles.ITALIC, "Click to edit bus variables for this PokeBus Stop")))
                             .onClick(TextActions.executeCallback(dummySrc -> {
                                 busStop.editOther(src);
                             }))
@@ -76,9 +76,9 @@ public class StopsCommand implements CommandExecutor {
                 TextActions.executeCallback(dummySrc -> {
                     ChatListener.clearListeners((Player)src);
                     ChatListener.listeningForChatStopsCommand.add((Player)src);
-                    src.sendMessage(Text.of(TextColors.GRAY, "What is the name of this PokeBus stop?"));
+                    src.sendMessage(Text.of(TextColors.GRAY, "What is the name of this PokeBus Stop?"));
                 }),
-                TextActions.showText(Text.of(TextColors.GRAY, TextStyles.ITALIC, "Click to create a new PokeBus stop")),
+                TextActions.showText(Text.of(TextColors.GRAY, TextStyles.ITALIC, "Click to create a new PokeBus Stop")),
                 TextColors.GREEN, "[+]"
         ));
 
