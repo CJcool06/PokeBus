@@ -3,7 +3,7 @@ You already keep Pokemon locked away in some crappy ball... So why not take it a
 
 I know, I know, it sounds too good to be true. But I assure you, it gets *even better!*
 
-**TRIGGER WARNING**
+**TRIGGER WARNING**  
 This plugin uses mixins to *safely* inject some code in to Pixelmon and Minecraft sources to allow the AI to function.
 Rest assured, the amount of injected code is *very* miniscule and should in no way break anything.
 Of course if you want to see for yourself, feel free to browse the source code.
