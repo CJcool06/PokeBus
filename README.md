@@ -14,11 +14,8 @@ This plugin allows you to turn regular ol' statues in to PokeBus Stops that can 
 ### What is a PokeBus Stop?
 A PokeBus Stop is a statue that holds information regarding the PokeBuses.
 
-**I can't be bothered thinking of a cool lore to do with a statue because, you know, its just a statue.
-If you want to make the lore yourself, DM it to me on discord (CJ#7071) or make an issue (as this is obviously a pressing matter requiring urgency) and I'll put it here if I like it.**
-
 ### What is a PokeBus?
-A PokeBus is a Pokemon with the exact traits of it's parent statue (growth, shinyness, pokemon, etc.) but has been stripped of all it's Pokemon AIs and is essentially just another brainless mob waiting for orders. There've been missing persons reports of people that have touched a PokeBus, apparently they're sleeping with the stars now... **DO NOT TOUCH**
+A PokeBus is a Pokemon with the exact traits of it's parent statue (growth, shinyness, pokemon, etc.) but has been stripped of all it's Pokemon AIs and is essentially just another brainless mob waiting for orders.
 
 ### What is a PokeBus Driver?
 Each PokeBus will have a chicken driving, because why not. Each chicken has undergone rutheless PokeBus training that has more than likely left deep-seeded psychological issues that may cause them to temporarily clock-out of life and start doing burnouts mid-ride. Don't worry, they *usually* come-to after a few seconds. If not just de-mount, it's not like he'll care.
