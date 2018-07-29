@@ -9,7 +9,7 @@ Rest assured, the amount of injected code is *very* miniscule and should in no w
 Of course if you want to see for yourself, feel free to browse the source code.
 
 ## What does this plugin even do?
-This plugin allows you to turn regular statues in to PokeBus stops that can be used by players. Interacting with a PokeBus Stop, assuming it is correctly set up, will spawn a PokeBus that will take you to a pre-defined set of destinations in an automatic or custom route.
+This plugin allows you to turn regular ol' statues in to PokeBus stops that can be used by players. Interacting with a PokeBus Stop, assuming it is correctly set up, will spawn a PokeBus that will take you to a pre-defined set of destinations in an automatic or custom route.
 
 ### What is a PokeBus Stop?
 A PokeBus Stop is a statue that holds information regarding the PokeBuses.
