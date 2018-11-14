@@ -6,7 +6,6 @@ import com.pixelmonmod.pixelmon.entities.pixelmon.EntityStatue;
 import io.github.cjcool06.pokebus.config.PokeBusConfig;
 import io.github.cjcool06.pokebus.obj.Bus;
 import io.github.cjcool06.pokebus.obj.Destination;
-import net.minecraftforge.fml.common.FMLCommonHandler;
 import org.spongepowered.api.entity.living.player.Player;
 import org.spongepowered.api.text.Text;
 import org.spongepowered.api.text.serializer.TextSerializers;
@@ -18,7 +17,7 @@ import java.util.Random;
 public class Utils {
 
     public static EntityPixelmon getFromStatue(EntityStatue statue) {
-        EntityPixelmon pixelmon = (EntityPixelmon)PixelmonEntityList.createEntityByName(statue.getPokemonName(), FMLCommonHandler.instance().getMinecraftServerInstance().getEntityWorld());
+        EntityPixelmon pixelmon = (EntityPixelmon)PixelmonEntityList.createEntityByName(statue.getPokemonName(), statue.world);
         pixelmon.setGrowth(statue.getGrowth());
         pixelmon.setBoss(statue.getBossMode());
         pixelmon.setForm(statue.getForm());
