@@ -29,7 +29,7 @@ import org.spongepowered.api.text.Text;
 public class PokeBus {
     public static final String ID = "pokebus";
     public static final String NAME = "PokeBus";
-    public static final String VERSION = "1.0.4";
+    public static final String VERSION = "1.0.5";
     public static final String DESCRIPTION = "Treat pokemon more like slaves than they already are";
     public static final String AUTHORS = "CJcool06";
     private static PokeBus plugin;
