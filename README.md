@@ -25,7 +25,7 @@ If you don't like him you can set him free in the config. Although, his only ski
 ## Features
 * PokeBuses use the traits of the statue associated with it's parent PokeBus Stop dynamically, allowing any statue changes to immediately be applied to the PokeBuses without any need for pesky reloads.
 
-* Give PokeBuses their own **custom** names! Each PokeBus Stop can have their own **seperate** list of names for their PokeBus Drivers to use. If no names are set for a PokeBus Stop, it will use default names givin in the config. **Supports colour codes**
+* Give PokeBuses their own **custom** names! Each PokeBus Stop can have their own **seperate** list of names for their PokeBus Drivers to use. If no names are set for a PokeBus Stop, it will use default names given in the config. **Supports colour codes**
 
 * Neat destination system and AI that allows you to set multiple destinations for each PokeBus Stop and easily create a custom path for the PokeBus to follow using the *ghost destinations* system. **Wiki coming soon(tm)**
 
@@ -33,8 +33,12 @@ If you don't like him you can set him free in the config. Although, his only ski
 
 * PokeBuses are highly configurable and uses a **sexy** interactive chat system to do so. Better than porn confirmed.
 
+## Commands
+* `/pokebus stops` - pokebus.admin.stops
+* `/pokebus reload` - pokebus.admin.reload
+
 ## Common Problems
 * **Pokemon going in circles:** Lower the travel speed and make the growth smaller.  
 
-* **Problem getting to destination error:** Most likely the destination as above the maximum pathing range distance. Increase in config.  
+* **Problem getting to destination error:** Most likely the distance from the PokeBus Stop to the destination is more than the maximum pathing range distance. Increase in config.  
 * **Cannot get to destination:** Use ghost destinations to make a custom path to follow. Pretty much a must-do for any complex or long distance destinations.  
