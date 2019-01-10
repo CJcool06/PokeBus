@@ -100,7 +100,7 @@ public class DataManager {
                     }
                     BusStop busStop = new BusStop(statueUID, Sponge.getServer().getWorld(worldUID).get(), name, driverNames);
                     busStop.getDestinations().addAll(destinations);
-                    busStop.setTravelSpeed(jsonObject.get("TravelSpeed").getAsInt());
+                    busStop.setTravelSpeed(jsonObject.get("TravelSpeed").getAsDouble());
                 } catch (IOException ioe) {
                     ioe.printStackTrace();
                 }

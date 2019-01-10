@@ -68,7 +68,7 @@ public class BusStop {
         return travelSpeed;
     }
 
-    public void setTravelSpeed(int travelSpeed) {
+    public void setTravelSpeed(double travelSpeed) {
         this.travelSpeed = travelSpeed;
     }
 
