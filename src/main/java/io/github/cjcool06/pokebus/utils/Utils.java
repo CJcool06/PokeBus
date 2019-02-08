@@ -1,7 +1,6 @@
 package io.github.cjcool06.pokebus.utils;
 
-import com.pixelmonmod.pixelmon.api.pokemon.Pokemon;
-import com.pixelmonmod.pixelmon.api.pokemon.PokemonSpec;
+import com.pixelmonmod.pixelmon.config.PixelmonEntityList;
 import com.pixelmonmod.pixelmon.entities.pixelmon.EntityPixelmon;
 import com.pixelmonmod.pixelmon.entities.pixelmon.EntityStatue;
 import io.github.cjcool06.pokebus.config.PokeBusConfig;
@@ -18,13 +17,12 @@ import java.util.Random;
 public class Utils {
 
     public static EntityPixelmon getFromStatue(EntityStatue statue) {
-        PokemonSpec spec = new PokemonSpec();
-        spec.growth = (byte)statue.getGrowth().index;
-        spec.boss = (byte)statue.getBossMode().index;
-        spec.form = (byte)statue.getForm();
-        Pokemon pokemon = spec.create();
+        EntityPixelmon pixelmon = (EntityPixelmon)PixelmonEntityList.createEntityByName(statue.getPokemonName(), statue.world);
+        pixelmon.setGrowth(statue.getGrowth());
+        pixelmon.setBoss(statue.getBossMode());
+        pixelmon.setForm(statue.getForm());
 
-        return pokemon.getOrMakeEntity();
+        return pixelmon;
     }
 
     public static Destination getNextVisibleDestination(Bus bus) {
