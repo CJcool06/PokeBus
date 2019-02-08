@@ -18,6 +18,7 @@ public class Utils {
 
     public static EntityPixelmon getFromStatue(EntityStatue statue) {
         PokemonSpec spec = new PokemonSpec();
+        spec.name = statue.getSpecies().name;
         spec.growth = (byte)statue.getGrowth().index;
         spec.boss = (byte)statue.getBossMode().index;
         spec.form = (byte)statue.getForm();
