@@ -1,11 +1,9 @@
 # Created by .ignore support plugin (hsz.mobi)
-/.gradle
 /.idea
-/build
 /gradle
 /libs
 /src/test
 /gradlew
 /gradlew.bat
 /settings.gradle
-/src/main/resources
+/src/main/resources/mcmod.info
