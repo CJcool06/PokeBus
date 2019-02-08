@@ -1,6 +1,5 @@
 package io.github.cjcool06.pokebus.utils;
 
-import com.pixelmonmod.pixelmon.api.pokemon.Pokemon;
 import com.pixelmonmod.pixelmon.api.pokemon.PokemonSpec;
 import com.pixelmonmod.pixelmon.entities.pixelmon.EntityPixelmon;
 import com.pixelmonmod.pixelmon.entities.pixelmon.EntityStatue;
@@ -22,9 +21,8 @@ public class Utils {
         spec.growth = (byte)statue.getGrowth().index;
         spec.boss = (byte)statue.getBossMode().index;
         spec.form = (byte)statue.getForm();
-        Pokemon pokemon = spec.create();
 
-        return pokemon.getOrMakeEntity();
+        return spec.create(statue.world);
     }
 
     public static Destination getNextVisibleDestination(Bus bus) {
