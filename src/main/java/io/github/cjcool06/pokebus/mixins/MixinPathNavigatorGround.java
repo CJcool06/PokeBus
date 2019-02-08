@@ -9,6 +9,9 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
+/**
+ * This class is currently unused and here for legacy reasons
+ */
 @Mixin(PathNavigateGround.class)
 public abstract class MixinPathNavigatorGround extends PathNavigate {
 
