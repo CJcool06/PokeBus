@@ -1,4 +1,7 @@
 # PokeBus (Pixelmon 6.3.4)
+
+**Note: This branch's code is for Pixelmon 6.3.4. If you're looking for the Pixelmon 7.0 code, it's in the master branch.**
+
 You already keep Pokemon locked away in some crappy ball... So why not take it a step further and make their entire existance consist of taking you places and nothing else. They will literally only exist to take you to your distination, then *poof* - dead. It's a win-win!
 
 I know, I know, it sounds too good to be true. But I assure you, it gets *even better!*
