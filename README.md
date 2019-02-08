@@ -1,4 +1,4 @@
-# PokeBus 1.0.6 (Pixelmon 7.x)
+# PokeBus (Pixelmon 7.x)
 You already keep Pokemon locked away in some crappy ball... So why not take it a step further and make their entire existance consist of taking you places and nothing else. They will literally only exist to take you to your distination, then *poof* - dead. It's a win-win!
 
 I know, I know, it sounds too good to be true. But I assure you, it gets *even better!*
