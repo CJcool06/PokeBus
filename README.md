@@ -1,5 +1,5 @@
 # PokeBus (Pixelmon 7.x)
-You already keep Pokemon locked away in some crappy ball... So why not take it a step further and make their entire existance consist of taking you places and nothing else. They will literally only exist to take you to your distination, then *poof* - dead. It's a win-win!
+You already keep Pokemon locked away in some crappy ball... So why not take it a step further and make their entire existance consist of taking you places and nothing else. They will literally only exist to take you to your distination, then *poof* - dead.
 
 I know, I know, it sounds too good to be true. But I assure you, it gets *even better!*
 
@@ -15,7 +15,7 @@ This plugin allows you to turn regular ol' statues in to PokeBus Stops that can 
 A PokeBus Stop is a statue that holds information regarding the PokeBuses.
 
 ### What is a PokeBus?
-A PokeBus is a Pokemon with the exact traits of it's parent statue (growth, shinyness, pokemon, etc.) but has been stripped of all it's Pokemon AIs and is essentially just another brainless mob waiting for orders.
+A PokeBus is a Pokemon with the exact traits of it's parent statue (growth, shinyness, species, etc.) but has been stripped of all it's Pokemon AIs and is essentially just another brainless mob waiting for orders.
 
 ### What is a PokeBus Driver?
 Each PokeBus will have a chicken driving, because why not. Each chicken has undergone rutheless PokeBus training that has more than likely left deep-seeded psychological issues that may cause them to temporarily clock-out of life and start doing burnouts mid-ride. Don't worry, they *usually* come-to after a few seconds. If not just de-mount, it's not like he'll care.
@@ -37,7 +37,7 @@ If you don't like him you can set him free in the config. Although, his only ski
 * `/pokebus stops` - pokebus.admin.stops
 * `/pokebus reload` - pokebus.admin.reload
 
-## Common Problems
+## Troubleshooting
 * **Pokemon going in circles:** Lower the travel speed and make the growth smaller.  
 
 * **Problem getting to destination error:** Most likely the distance from the PokeBus Stop to the destination is more than the maximum pathing range distance. Increase in config.  
