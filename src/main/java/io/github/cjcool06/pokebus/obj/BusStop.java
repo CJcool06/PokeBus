@@ -227,7 +227,7 @@ public class BusStop {
         contents.add(Text.builder().append(Text.of(TextColors.GOLD, "[<--]"))
                 .onHover(TextActions.showText(Text.of(TextColors.GRAY, TextStyles.ITALIC, "Click to go back")))
                 .onClick(TextActions.executeCallback(dummySrc -> {
-                    editOther(src);
+                    StopsCommand.showStopsSummary(src);
                 }))
                 .build());
 

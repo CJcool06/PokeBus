@@ -11,6 +11,7 @@ import org.spongepowered.api.event.Order;
 import org.spongepowered.api.event.message.MessageChannelEvent;
 import org.spongepowered.api.text.Text;
 import org.spongepowered.api.text.format.TextColors;
+import org.spongepowered.api.text.serializer.TextSerializers;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -69,6 +70,7 @@ public class ChatListener {
                     }
                     busStop.getDriverNames().add(messageArgs[1]);
                     listeningForName.remove(player);
+                    player.sendMessage(Text.of(TextColors.GREEN, "Added driver name ", TextSerializers.FORMATTING_CODE.deserialize(messageArgs[1]), " to this PokeBus Stop."));
                 }
                 event.setMessageCancelled(true);
             }
